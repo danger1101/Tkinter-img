@@ -1,0 +1,77 @@
+from tkinter import*
+from PIL import ImageTk, Image
+oyna = Tk()
+
+oyna.title("Rasmlar")
+rasmlar = ImageTk.PhotoImage(Image.open("C:/rasmlar_png/images.png"))
+label = Label(image=rasmlar)
+label.pack()
+#oyna.mainloop()
+
+
+from tkinter import*
+from PIL import ImageTk, Image
+w = Tk()
+w.title("Oyna")
+rasm1 = ImageTk,PhotoImage (Image.open("C:/Intel/aspen.png"))
+rasm2 = ImageTk,PhotoImage (Image.open("C:/Intel/aspen.png"))
+rasm3 = ImageTk,PhotoImage (Image.open("C:/Intel/aspen.png"))
+rasm4 = ImageTk,PhotoImage (Image.open("C:/Intel/aspen.png"))
+rasm5 = ImageTk,PhotoImage (Image.open("C:/Intel/aspen.png"))
+rasm_list = [rasm1, rasm2, rasm3, rasm4, rasm5]
+label = Label(image=rasm1)
+label.grid(row=0, column=0, columnspan=3)
+button_orqaga = Button (w, text="<<")
+button_exit = Button (w, text="Exit", command=w.quit)
+button_oldinga = Button (w, text="<<")
+
+button_orqaga.grid(row=1, column=0)
+button_exit.grid(row=1, column=1)
+button_orqaga.grid(row=1, column=2)
+w.mainloop()
+
+
+from tkinter import*
+from tkinter import  filedialog
+from tkPDFViewer import tkPDFViewer as pdf
+
+import os
+
+def faylni_och():
+    filename=filedialog.askopenfilename(initialdir=os.getcwd(),title="PDF fileni tanlang",filetype=(("PDF FILE","pdf"),
+                                                                                                    ("Pdf File",".PDF"),
+                                                                                                    ("All file","txt")))
+
+root = Tk()
+root.geometry("500x500")
+root.title("Ahmad")
+root.configure(bg = "grey")
+
+
+
+Button(root,text="PDF faylni och",command=faylni_och,width=50,font="arial 50").pack()
+
+from tkinter import*
+from tkinter import  filedialog
+from tkPDFViewer import tkPDFViewer as pdf
+
+import os
+root = Tk()
+root.geometry("500x500")
+root.title("Ahmad")
+root.configure(bg = "grey")
+
+def faylni_och():
+    filename=filedialog.askopenfilename(initialdir=os.getcwd(),title="PDF fileni tanlang",filetype=(("PDF FILE","pdf"),
+                                                                                                    ("Pdf File",".PDF"),
+                                                                                                    ("All file","txt")))
+    v1=pdf.ShowPdf()
+    v2=v1.pdf_view(root,pdf_location=open(filename),width=100,
+               height=100).pack(pady=(0,0))
+Button(root,text="PDF faylni och",command=faylni_och,width=50,font="arial 50").pack()
+root.mainloop()
+
+# pip install pyinstaller
+# pyinstaller file
+# pip install Pillow
+# pip install tkPDFViewer
